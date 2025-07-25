@@ -1,0 +1,60 @@
+\DeclareMathOperator{\codeif}{\mathtt{:-} }
+
+% Imperial brand colors
+\definecolor{Navy}{HTML}{154C8A}
+\definecolor{ImperialBlue}{RGB}{0, 62, 116}
+\definecolor{LightGrey}{RGB}{235, 238, 238}
+\definecolor{CoolGrey}{RGB}{157, 157, 157}
+\definecolor{LightBlue}{RGB}{212, 239, 252}
+
+% plot colors
+\definecolor{pblue}{HTML}{4477AA}
+\definecolor{pgreen}{HTML}{228833}
+\definecolor{pred}{HTML}{EE6677}
+\definecolor{pyellow}{HTML}{CCBB44}
+\definecolor{pcyan}{HTML}{66CCEE}
+\definecolor{pgray}{HTML}{BBBBBB}
+
+\makeatletter
+\newenvironment{customlegend}[1][]{%
+	\begingroup
+	% inits/clears the lists (which might be populated from previous
+	% axes):
+	\pgfplots@init@cleared@structures
+	\pgfplotsset{#1}%
+}{%
+	% draws the legend:
+	\pgfplots@createlegend
+	\endgroup
+}%
+
+\def\addlegendimage{\pgfplots@addlegendimage}
+
+
+
+
+\usetheme{Desert}
+
+% lower bar
+\usebackgroundstyle{Default}
+
+% title
+\usetitlestyle{Filled}
+\colorlet{titlebgcolor}{Navy}
+
+% block
+\useblockstyle{Minimal} % Basic
+\colorlet{blocktitlebgcolor}{ImperialBlue}
+\colorlet{blockbodybgcolor}{LightGrey}
+\colorlet{blocktitlefgcolor}{ImperialBlue}
+
+% inner block
+\useinnerblockstyle{Default}
+\colorlet{innerblocktitlebgcolor}{CoolGrey}
+\colorlet{innerblockbodybgcolor}{LightGrey}
+
+\DeclareTextFontCommand{\emph}{\color{ImperialBlue}\em}
+
+\newcommand{\midlinegraphic}[2]{%
+	\raisebox{-#1/2}{\includegraphics[height=#1]{#2}}}
+

@@ -1,0 +1,2 @@
+0.041::action(left) ; 0.959::action(right) :- left_wall_present, \+ right_wall_present.
+0.581::action(left) ; 0.419::action(right) :- \+ left_wall_present, \+ right_wall_present.

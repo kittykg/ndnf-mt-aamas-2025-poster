@@ -1,0 +1,1 @@
+action(left) :- in_s_1.    action(right) :- not in_s_1.

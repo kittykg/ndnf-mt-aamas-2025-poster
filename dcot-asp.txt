@@ -1,0 +1,4 @@
+action(turn_right) :- a_5, a_8, a_11.
+action(forward) :- a_2.
+action(toggle) :- a_3.
+action(toggle) :- not a_2, not a_3, not a_11.

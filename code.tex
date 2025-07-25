@@ -1,0 +1,60 @@
+% ============================ Listing definitions =============================
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{ip}{
+    numberstyle=\tiny\color{codegray},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    frame=single,
+    numbers=none,
+}
+\lstset{style=ip}
+% ==============================================================================
+
+\begin{filecontents*}{sc-mdp.txt}
+action(left) :- in_s_1.    action(right) :- not in_s_1.
+\end{filecontents*}
+
+\begin{filecontents*}{sc-pomdp.txt}
+0.041::action(left) ; 0.959::action(right) :- left_wall_present, \+ right_wall_present.
+0.581::action(left) ; 0.419::action(right) :- \+ left_wall_present, \+ right_wall_present.
+\end{filecontents*}
+
+\begin{filecontents*}{dc-asp.txt}
+action(turn_right) :- a_5, a_8.
+action(forward) :- a_2.
+action(toggle) :- a_3.
+% Definitions of each invented predicate a_i:
+a_2 :- top_right_corner_wall.
+a_3 :- one_step_ahead_closed_door.
+a_5 :- not curr_location_open_door,
+        not one_step_ahead_closed_door.
+a_8 :- two_step_ahead_unseen.
+\end{filecontents*}
+
+
+\begin{filecontents*}{dct-asp.txt}
+action(turn_right) :- a_5, a_8.
+action(forward) :- not a_1, a_2.
+action(toggle) :- a_3.
+action(toggle) :- a_1, not a_3, a_12.
+\end{filecontents*}
+
+\begin{filecontents*}{dcot-asp.txt}
+action(turn_right) :- a_5, a_8, a_11.
+action(forward) :- a_2.
+action(toggle) :- a_3.
+action(toggle) :- not a_2, not a_3, not a_11.
+\end{filecontents*}

@@ -1,0 +1,9 @@
+action(turn_right) :- a_5, a_8.
+action(forward) :- a_2.
+action(toggle) :- a_3.
+% Definitions of each invented predicate a_i:
+a_2 :- top_right_corner_wall.
+a_3 :- one_step_ahead_closed_door.
+a_5 :- not curr_location_open_door,
+        not one_step_ahead_closed_door.
+a_8 :- two_step_ahead_unseen.
